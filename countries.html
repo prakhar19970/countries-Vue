@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries Vue Project</title>
+    <link href="./countries.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div id='app'>
+        <countries-header></countries-header>
+        <countries-container></countries-container>
+    </div>
+
+    <script type='text/x-template' id='countriesHeader-template'>
+        <div class='d-flex header'>
+            <h3>Where in the world?</h3>
+            <button class='btn white-btn'><span><i className="fa fa-moon-o" aria-hidden="true"></i></span>Dark Mode</button>
+        </div>
+    </script>
+
+
+    <script type='text/x-template' id='countriesContainer-template'>
+        <div class='countries-outer-area'>
+            <div v-for='country in countriesData'>
+
+            </div>
+        </div>
+    </script>
+
+    <script type='text/x-template' id='countriesContainer-countryCard-template'>
+
+    </script>
+
+
+
+
+    <script src='https://unpkg.com/vue '></script>
+    <script src='./countriesVue.js '></script>
+
+
+
+</body>
+
+</html>
