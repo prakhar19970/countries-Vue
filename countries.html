@@ -29,13 +29,28 @@
 
     <script type='text/x-template' id='countriesContainer-template'>
         <div class='countries-outer-area'>
-            <div v-for='country in countriesData'>
-
+            <div class="country-blocks-wrapper">
+                <div v-for="country of countriesData" class='country-block'>
+                    <a :href=" '/countries/' +country.alpha3Code">
+                        <div class=" country-flag-div ">
+                            <img class="curved-corners " :src="country.flag " alt=" country flag " /></div>
+                        <div class="country-details-div ">
+                            <div class="country-name-title ">
+                                <h6><b>{{country.name}}</b></h6>
+                            </div>
+                            <div>
+                                <div><b>Population:</b>{{country.population}}</div>
+                                <div><b>Region:</b> {{country.region}}</div>
+                                <div><b>Capital:</b> {{country.capital}}</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </script>
 
-    <script type='text/x-template' id='countriesContainer-countryCard-template'>
+    <script type='text/x-template ' id='countriesContainer-countryCard-template '>
 
     </script>
 
