@@ -17,9 +17,8 @@
 <body>
     <div id='app'>
         <countries-header></countries-header>
-        <div class='countries-outer-area'>
+        
             <router-view></router-view>
-        </div>
     </div>
 
     <script type='text/x-template' id='countriesHeader-template'>
@@ -31,18 +30,20 @@
 
 
     <script type='text/x-template' id='countriesContainer-template'>
+        <div class='countries-outer-area'>
             <div class="country-blocks-wrapper">
                 <div v-for="country of countriesData" class='country-block'>
                     <country-card :country='country'>
                     </country-card>
                 </div>
             </div>
+        </div>
     </script>
 
     <script type='text/x-template' id='countriesContainer-countryCard-template'>
         <router-link :to="'/countries/' +countryData.alpha3Code">
             <div class="country-flag-div">
-                <img class="curved-corners" :src="countryData.flag " alt="country_flag " /></div>
+                <img class="curved-corners" :src="countryData.flag" alt="country_flag " /></div>
             <div class="country-details-div ">
                 <div class="country-name-title ">
                     <h6><b>{{countryData.name}}</b></h6>
@@ -57,38 +58,37 @@
     </script>
 
     <script type='text/x-template' id='countryDetails-template'>
-        <div>
-            <!-- <div class='country-deatils-wrapper'>
-                <router-link :to="/"><button
+        <div class='country-deatils-wrapper'>
+                <router-link :to="'/'"><button
                         class="btn white-btn back-btn">
                         <i class="fa fa-long-arrow-left fa-sm"></i>
                         Back</button></router-link>
                 <div class="country-details-outer">
                     <div class="country-details-container">
                         <div class="country-details-flag">
-                            <img src='' alt="country flag" />
+                            <img :src="countryDetails.flag" alt="country flag" />
                         </div>
-                        <div *ngIf='country' class="country-details-outer-block">
+                        <div class="country-details-outer-block">
                             <div class="country-name-title">
-                                <h3><b>{{country.name}}</b></h3>
+                                <h3><b>{{countryDetails.name}}</b></h3>
                             </div>
                             <div class="country-summary-div">
                                 <div class="summary-left-inner-div">
-                                    <div><b>Native Name:</b><span> {{country.nativeName}}</span></div>
-                                    <div><b>Population:</b><span> {{country.population}}</span></div>
-                                    <div><b>Region:</b><span> {{country.region}}</span></div>
-                                    <div><b>Sub Region:</b><span> {{country.subregion || 'none'}}</span></div>
-                                    <div><b>Capital:</b><span> {{country.capital || 'none'}} </span> </div>
+                                    <div><b>Native Name:</b><span> {{countryDetails.nativeName}}</span></div>
+                                    <div><b>Population:</b><span> {{countryDetails.population}}</span></div>
+                                    <div><b>Region:</b><span> {{countryDetails.region}}</span></div>
+                                    <div><b>Sub Region:</b><span> {{countryDetails.subregion || 'none'}}</span></div>
+                                    <div><b>Capital:</b><span> {{countryDetails.capital || 'none'}} </span> </div>
                                 </div>
-                                <div class="summary-right-inner-div">
+                                <!-- <div class="summary-right-inner-div">
                                     <div><b>Top Level Domain:</b><span> {{country.topLevelDomain.join()}}</span>
                                     </div>
                                     <div><b>Currencies:</b><span *ngFor="let currency of country.currencies; i as index">
                                             {{currency.name}}</span></div>
                                     <div><b>Languages:</b><span *ngFor="let lang of country.languages;"> {{lang.name}} </span></div>
-                                </div>
+                                </div> -->
                             </div>
-                            <div [ngClass]="(country.borders.length)?'d-flex':'d-none'">
+                            <!-- <div [ngClass]="(country.borders.length)?'d-flex':'d-none'">
                                 <div class="d-flex border-area">
                                     <b>Border Countries:</b></div>
                                 <div class="d-flex border-country-wrapper">
@@ -101,11 +101,11 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
-                </div> -->
-        </div>
+                </div>
+            </div> 
     </script>
 
 

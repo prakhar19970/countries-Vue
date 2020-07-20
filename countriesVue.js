@@ -42,7 +42,7 @@ const CountryDetails = Vue.component('country-details', {
     template: '#countryDetails-template',
     data() {
         return {
-            countryData: [],
+            countryDetails: [],
             code:this.$route.params.code
         }
     },
@@ -51,7 +51,7 @@ const CountryDetails = Vue.component('country-details', {
         fetch(getUrl).then(response => {
             return response.json();
         }).then(data => {
-            this.countryData = data;
+            this.countryDetails= data[0];
         })
     }
 })
