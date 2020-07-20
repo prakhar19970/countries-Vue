@@ -9,14 +9,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </head>
 
 <body>
     <div id='app'>
         <countries-header></countries-header>
-        <countries-container></countries-container>
+        <div class='countries-outer-area'>
+            <router-view></router-view>
+        </div>
+        
     </div>
 
     <script type='text/x-template' id='countriesHeader-template'>
@@ -28,20 +32,18 @@
 
 
     <script type='text/x-template' id='countriesContainer-template'>
-        <div class='countries-outer-area'>
             <div class="country-blocks-wrapper">
                 <div v-for="country of countriesData" class='country-block'>
                     <country-card :country='country'>
                     </country-card>
                 </div>
             </div>
-        </div>
     </script>
 
-    <script type=' text/x-template ' id='countriesContainer-countryCard-template'>
-        <a :href=" '/countries/ ' +countryData.alpha3Code">
-            <div class=" country-flag-div ">
-                <img class="curved-corners " :src="countryData.flag " alt=" country flag " /></div>
+    <script type='text/x-template' id='countriesContainer-countryCard-template'>
+        <router-link :to="'/countries/' +countryData.alpha3Code">
+            <div class="country-flag-div ">
+                <img class="curved-corners " :src="countryData.flag " alt="country_flag " /></div>
             <div class="country-details-div ">
                 <div class="country-name-title ">
                     <h6><b>{{countryData.name}}</b></h6>
@@ -52,13 +54,20 @@
                     <div><b>Capital:</b> {{countryData.capital}}</div>
                 </div>
             </div>
-        </a>
+        </router-link>
+    </script>
+
+    <script type='text/x-template' id='countryDetails-template'>
+        <div>
+            <div>
+                svm k mkodsl
+            </div>
+        </div>
     </script>
 
 
-
-
     <script src='https://unpkg.com/vue '></script>
+    <script src='https://unpkg.com/vue-router/dist/vue-router.js'></script>
     <script src='./countriesVue.js '></script>
 
 

@@ -1,10 +1,13 @@
-Vue.component('countries-header', {
+const header = Vue.component('countries-header', {
     template: '#countriesHeader-template',
 
 })
 
-Vue.component('countries-container', {
+const Countries = Vue.component('countries-container', {
     template: '#countriesContainer-template',
+    props: {
+        route: {},
+    },
     data() {
         return {
             countriesData: [],
@@ -20,19 +23,49 @@ Vue.component('countries-container', {
     }
 })
 
+
+
 Vue.component('country-card', {
     template: '#countriesContainer-countryCard-template',
     props: {
-        country: {}
+        country: {},
     },
     data() {
         return {
-            countryData: this.country
+            countryData: this.country,
         }
-    }
+    },
+
+})
+
+const CountryDetails = Vue.component('country-details', {
+    template: '#countryDetails-template',
+    props: {
+        countryCode:''
+    },
+})
+
+const routes = [
+    { path: '/', component: Countries },
+    { path: '/countries/:code', component: CountryDetails}
+]
+
+var router = new VueRouter({
+    routes: routes
 })
 
 
 new Vue({
     el: '#app',
+    data: {
+        code:'',
+    },
+    router: router,
+    watch:{
+        $route (to, from){
+           console.log(to.params.code);
+           this.code=to.params.code;
+            console.log(from);
+        }
+    }
 })
