@@ -43,15 +43,18 @@ const CountryDetails = Vue.component('country-details', {
     data() {
         return {
             countryDetails: [],
+            borderCountries:[],
             code:this.$route.params.code
         }
     },
     created() {
         let getUrl = `https://restcountries.eu/rest/v2/alpha?codes=${this.code}`;
+        
         fetch(getUrl).then(response => {
             return response.json();
         }).then(data => {
             this.countryDetails= data[0];
+            this.borderCountries=this.countryDetails.borders;
         })
     }
 })

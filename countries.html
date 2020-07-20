@@ -16,9 +16,8 @@
 
 <body>
     <div id='app'>
-        <countries-header></countries-header>
-        
-            <router-view></router-view>
+        <countries-header></countries-header>   
+            <router-view :key="code"></router-view>
     </div>
 
     <script type='text/x-template' id='countriesHeader-template'>
@@ -80,28 +79,26 @@
                                     <div><b>Sub Region:</b><span> {{countryDetails.subregion || 'none'}}</span></div>
                                     <div><b>Capital:</b><span> {{countryDetails.capital || 'none'}} </span> </div>
                                 </div>
-                                <!-- <div class="summary-right-inner-div">
-                                    <div><b>Top Level Domain:</b><span> {{country.topLevelDomain.join()}}</span>
+                                <div class="summary-right-inner-div">
+                                    <div><b>Top Level Domain:</b><span> {{countryDetails.topLevelDomain.join()}}</span>
                                     </div>
-                                    <div><b>Currencies:</b><span *ngFor="let currency of country.currencies; i as index">
+                                    <div><b>Currencies:</b><span v-for=" currency of countryDetails.currencies">
                                             {{currency.name}}</span></div>
-                                    <div><b>Languages:</b><span *ngFor="let lang of country.languages;"> {{lang.name}} </span></div>
-                                </div> -->
+                                    <div><b>Languages:</b><span v-for=" lang of countryDetails.languages"> {{lang.name}} </span></div>
+                                </div>
                             </div>
-                            <!-- <div [ngClass]="(country.borders.length)?'d-flex':'d-none'">
+                            <div v-if="(countryDetails.borders.length)">
                                 <div class="d-flex border-area">
                                     <b>Border Countries:</b></div>
                                 <div class="d-flex border-country-wrapper">
-                                    <div class="d-flex border-country-buttons" *ngFor="let border of borderCountries[0]">
-                                        <a routerLink='/countries/{{border.alpha3Code}}'
-                                        [ngStyle]="{ 'color':(darkMode)?'hsl(0, 0%, 100%)': 'hsl(200, 15%, 8%)',
-                                        'text-decoration': 'none'}"
-                                            [ngClass]="(darkMode)?'btn white-btn border-btn dark-mode-element dark-shadow':'btn white-btn border-btn'">
-                                            <div>{{border.name}}</div>
-                                        </a>
+                                    <div class="d-flex border-country-buttons" v-for="border of borderCountries">
+                                        <router-link :to="'/countries/'+border"
+                                        class='btn white-btn border-btn'>
+                                            <div>{{border}}</div>
+                                    </router-link>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>
