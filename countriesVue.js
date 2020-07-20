@@ -40,9 +40,20 @@ Vue.component('country-card', {
 
 const CountryDetails = Vue.component('country-details', {
     template: '#countryDetails-template',
-    props: {
-        countryCode:''
+    data() {
+        return {
+            countryData: [],
+            code:this.$route.params.code
+        }
     },
+    created() {
+        let getUrl = `https://restcountries.eu/rest/v2/alpha?codes=${this.code}`;
+        fetch(getUrl).then(response => {
+            return response.json();
+        }).then(data => {
+            this.countryData = data;
+        })
+    }
 })
 
 const routes = [
