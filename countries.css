@@ -256,3 +256,107 @@
       width: 36%;
       border-radius: 5px;
     }
+
+
+    @media only screen and (max-width: 900px){
+
+      .header-title{
+        font-size: 14px;
+      }
+      .countries-header {
+        padding: 1% 3%;
+      }
+      .search-wrapper {
+        flex-direction: column;
+      }
+      .input-area {
+        width: 100%;
+        height: 3rem;
+        margin-bottom: 3%;
+      }
+    .country-row,.new-country-row{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding-left: 2%;
+        padding-right: 2%;
+    }
+    
+    div.country-block:nth-child(4n) {
+      margin-right: 10%;
+    }
+    .country-block,.new-country-block{
+      width: 37%;
+      height: 20rem;
+      margin-right: 10%;
+      margin-bottom:10%;  
+    }
+    .country-blocks-wrapper{
+      padding-top: 8%;
+      padding-left: 2%;
+      padding-right: 2%;
+    }
+    .country-details-container{
+      flex-direction: column;
+    }
+    .country-details-flag{
+      width: 100%;
+      height: auto;
+    }
+    
+    .back-btn{
+      width: 21%;
+    }
+    .country-details-outer{
+      margin-top:5%;
+    }
+    .country-details-outer-block {
+      padding: 3% 2% 0% 0%;
+      width:100%
+    }
+    .country-summary-div{
+    flex-direction: column;
+    height: 19rem;
+    }
+    .border-country-wrapper {
+      flex-direction: column;
+      margin-top: 6%;
+    }
+    .border-country-buttons{
+      width:100%;
+    }
+    .summary-right-inner-div{
+      height: 6rem;
+    }
+    .white-btn{
+      font-size: 14px;
+    }
+    }
+    
+    @media only screen and (max-width: 700px) and (min-width: 500px){
+    .country-block,.new-country-block{
+      margin-right: auto;
+      margin-left:auto;
+    width: 45%;
+    }
+    div.country-block:nth-child(4n) {
+      margin-right: auto;
+    }
+    }
+    @media only screen and (max-width: 500px) and (min-width: 400px){
+      .country-block,.new-country-block{
+        margin-right: auto;
+      margin-left:auto;
+      margin-bottom: 15%;
+      width: 60%;
+      }
+      }
+    
+    @media only screen and (max-width: 400px){
+      .country-block,.new-country-block{
+      margin-right: auto;
+      margin-left:auto;
+      margin-bottom: 20%;
+      width: 75%;
+      }
+      }
