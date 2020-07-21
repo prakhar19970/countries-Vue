@@ -1,0 +1,22 @@
+{
+  "name": "countries-vue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "countriesVue.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prakhar19970/countries-Vue.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prakhar19970/countries-Vue/issues"
+  },
+  "homepage": "https://github.com/prakhar19970/countries-Vue#readme",
+  "dependencies": {
+    "vue": "^2.6.11"
+  }
+}
