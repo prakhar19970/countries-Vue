@@ -30,8 +30,27 @@
 
     <script type='text/x-template' id='countriesContainer-template'>
         <div class='countries-outer-area'>
+            <div class="d-flex search-wrapper">
+                <div class='input-area'>
+                  <i class='fa fa-search fa-sm'></i>
+                  <input type="text" name="search" v-model='searchEntry'
+                    class='countries-search-bar'
+                    placeholder='Search for a country...'/>
+                </div>
+                <div class="dropdown">
+                  <select class='btn white-btn' v-model='regionSelected'>
+                    <option class="btn white-btn" value=''>Region</option>
+                    <option value='africa'>Africa</option>
+                    <option value='americas'>Americas</option>
+                    <option value='asia'>Asia</option>
+                    <option value='europe'>Europe</option>
+                    <option value='oceania'>Oceania</option>
+                    <option value='polar'>Polar</option>
+                  </select>
+                </div>
+              </div>
             <div class="country-blocks-wrapper">
-                <div v-for="country of countriesData" class='country-block'>
+                <div v-for="country of filteredResults" class='country-block'>
                     <country-card :country='country'>
                     </country-card>
                 </div>

@@ -5,12 +5,12 @@ const header = Vue.component('countries-header', {
 
 const Countries = Vue.component('countries-container', {
     template: '#countriesContainer-template',
-    props: {
-        route: {},
-    },
     data() {
         return {
             countriesData: [],
+            searchEntry:'',
+            regionSelected:'',
+            filteredCountries:[],
         }
     },
     created() {
@@ -20,6 +20,22 @@ const Countries = Vue.component('countries-container', {
         }).then(data => {
             this.countriesData = data;
         })
+    },
+    computed:{
+        filteredResults: function(){
+
+            if(this.searchEntry){
+                this.filteredCountries=this.countriesData.filter((country)=>{
+                    return country.name.toLowerCase().includes(this.searchEntry.toLowerCase());
+                })
+
+                return this.filteredCountries;
+            }
+            else{
+                this.filteredCountries=this.countriesData;
+                return this.filteredCountries;
+            }
+        }
     }
 })
 
@@ -30,11 +46,11 @@ Vue.component('country-card', {
     props: {
         country: {},
     },
-    data() {
-        return {
-            countryData: this.country,
-        }
-    },
+    computed:{
+        countryData:function(){
+                return this.country;
+            }
+    }
 
 })
 
@@ -61,7 +77,7 @@ const CountryDetails = Vue.component('country-details', {
 
 const routes = [
     { path: '/', component: Countries },
-    { path: '/countries/:code', component: CountryDetails}
+    { path: '/countries/:code', component: CountryDetails,}
 ]
 
 var router = new VueRouter({
@@ -77,9 +93,7 @@ new Vue({
     router: router,
     watch:{
         $route (to, from){
-           console.log(to.params.code);
            this.code=to.params.code;
-            console.log(from);
         }
     }
 })

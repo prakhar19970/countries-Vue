@@ -168,9 +168,6 @@
     }
 
     .border-area {
-      /* flex-wrap: wrap;
-         flex-direction: column;
-         width: 52%; */
       width: 27%;
       margin-top: 2%;
     }
@@ -195,11 +192,6 @@
 
     .country-details-container {
       display: flex;
-    }
-
-    img {
-      height: 100%;
-      width: 100%;
     }
 
     .country-summary-div {
@@ -235,4 +227,32 @@
 
     .country-details-container {
       display: flex;
+    }
+
+    .countries-search-bar{
+      width: 100%;
+      background-color: white;
+      border:none;
+      padding-left:1%;
+      padding-right: 1%;
+    }
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: hsl(0, 0%, 85%);
+      opacity: 1; /* Firefox */
+    }
+    .search-wrapper{
+      display: flex;
+      width:100%;
+      justify-content:space-between;
+    }
+    
+    .input-area{
+      color: hsl(0, 0%, 90%);
+      background: white;
+      box-shadow: 2px 5px 4px 2px hsl(0, 0%, 94%);
+      display: flex;
+      align-items: center;
+      padding: 1% 2%;
+      width: 36%;
+      border-radius: 5px;
     }
