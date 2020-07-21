@@ -10,7 +10,6 @@ const Countries = Vue.component('countries-container', {
             countriesData: [],
             searchEntry:'',
             regionSelected:'',
-            filteredCountries:[],
         }
     },
     created() {
@@ -24,16 +23,28 @@ const Countries = Vue.component('countries-container', {
     computed:{
         filteredResults: function(){
 
-            if(this.searchEntry){
-                this.filteredCountries=this.countriesData.filter((country)=>{
+            if(this.searchEntry && this.regionSelected){
+                let countries=this.countriesData.filter((country)=>{
+                    return country.region.toLowerCase() === this.regionSelected.toLowerCase();
+                })
+                return countries.filter((country)=>{
                     return country.name.toLowerCase().includes(this.searchEntry.toLowerCase());
                 })
+            }
 
-                return this.filteredCountries;
+            else if(this.searchEntry){
+               return this.countriesData.filter((country)=>{
+                    return country.name.toLowerCase().includes(this.searchEntry.toLowerCase());
+                })
+            }
+
+            else if(this.regionSelected){
+            return this.countriesData.filter((country)=>{
+                    return country.region.toLowerCase() === this.regionSelected.toLowerCase();
+                })
             }
             else{
-                this.filteredCountries=this.countriesData;
-                return this.filteredCountries;
+                return this.countriesData;
             }
         }
     }
