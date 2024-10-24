@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/prakhar19970/countries-Vue#readme",
   "dependencies": {
-    "vue": "^2.6.11"
+    "vue": "^3.0.0"
   }
 }
